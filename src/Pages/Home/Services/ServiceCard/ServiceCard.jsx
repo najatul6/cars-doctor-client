@@ -1,9 +1,10 @@
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { BsCurrencyDollar } from "react-icons/bs";
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
-    const { img, title, price } = service;
+    const { _id, img, title, price } = service;
     return (
         <div>
             <div className="card bg-white shadow-2xl p-6">
@@ -12,7 +13,9 @@ const ServiceCard = ({ service }) => {
                     <h2 className="text-[#444] text-2xl font-semibold">{title}</h2>
                     <div className="card-actions justify-between items-center">
                         <h2 className="text-[#FF3811] flex items-center font-bold text-xl"><span>Price :</span> <BsCurrencyDollar />{price}</h2>
-                        <button className="btn bg-transparent border-none hover:bg-[#FF3811] hover:text-white  text-[#FF3811] text-2xl font-bold"><AiOutlineArrowRight /></button>
+                        <Link to={`/serviceDetails/${_id}`}>
+                            <button className="btn bg-transparent border-none hover:bg-[#FF3811] hover:text-white  text-[#FF3811] text-2xl font-bold"><AiOutlineArrowRight /></button>
+                        </Link>
                     </div>
                 </div>
             </div>

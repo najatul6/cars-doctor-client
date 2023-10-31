@@ -5,23 +5,33 @@ import { Link } from "react-router-dom";
 import login from "../../assets/images/login/login.svg"
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const LogIn = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleLogIn, twitterLogIn, facebookLogIn } = useContext(AuthContext);
 
     const handleLogIn = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        signIn (email, password)
+        signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                if (user) {
+                    Swal.fire(
+                        'Log In',
+                        'Log In Successfully',
+                        'success'
+                    )
+                }
             })
             .catch(error => {
                 console.error(error.message)
             })
+    }
+    const handleSocialLogIn = (media) => {
+        media()
     }
 
     return (
@@ -54,13 +64,13 @@ const LogIn = () => {
                     </form>
                     <p className="text-center text-[#444] text-lg">Or Sign In with</p>
                     <div className="flex justify-center gap-5 my-3">
-                        <button className="btn py-2 p-[15px] rounded-full text-xl text-blue-500">
+                        <button onClick={() => handleSocialLogIn(facebookLogIn)} className="btn py-2 p-[15px] rounded-full text-xl text-blue-500">
                             <BsFacebook></BsFacebook>
                         </button>
-                        <button className="btn py-2 p-[15px] rounded-full text-xl text-blue-500">
+                        <button onClick={()=>handleSocialLogIn(twitterLogIn)} className="btn py-2 p-[15px] rounded-full text-xl text-blue-500">
                             <ImTwitter></ImTwitter>
                         </button>
-                        <button className="btn py-2 p-[15px] rounded-full text-xl">
+                        <button onClick={() => handleSocialLogIn(googleLogIn)} className="btn py-2 p-[15px] rounded-full text-xl">
                             <FcGoogle></FcGoogle>
                         </button>
                     </div>
