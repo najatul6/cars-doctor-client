@@ -2,11 +2,21 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { BsCurrencyDollar } from "react-icons/bs";
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ServiceCard = ({ service }) => {
     const { _id, img, title, price } = service;
+    useEffect(()=>{
+        AOS.init();
+    },[])
     return (
-        <div>
+        <div
+            data-aos="zoom-in"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+        >
             <div className="card bg-white shadow-2xl p-6">
                 <figure><img className="h-[260px] rounded-xl" src={img} alt="Shoes" /></figure>
                 <div className="card-body px-0">

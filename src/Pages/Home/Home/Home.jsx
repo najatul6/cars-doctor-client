@@ -4,9 +4,16 @@ import PopularProducts from "../PopularProducts/PopularProducts";
 import Services from "../Services/Services";
 import Team from "../Team/Team";
 
+
+
+
 const Home = () => {
     return (
-        <div>
+        <div
+            data-aos="zoom-in"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+        >
             <Banner></Banner>
             <About></About>
             <Services></Services>

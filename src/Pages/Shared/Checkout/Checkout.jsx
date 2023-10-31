@@ -1,8 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import checkout from "../../../assets/images/checkout/checkout.png"
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { BsArrow90DegLeft, BsArrow90DegRight } from "react-icons/bs";
 
 const Checkout = () => {
     const checkoutData = useLoaderData();
@@ -66,17 +67,33 @@ const Checkout = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#F3F3F3] my-10 lg:my-32 rounded-xl">
-                <form onSubmit={handleCheckOut} className="py-10 px-2 lg:p-20">
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <input className="w-full p-4 rounded-xl" type="text" defaultValue={user?.displayName} name="name" placeholder="First Name" id="" />
-                        <input className="w-full p-4 rounded-xl" type="date" name="date" id="" />
-                        <input className="w-full p-4 rounded-xl" type="text" name="phone" placeholder="Your Phone" id="" />
-                        <input className="w-full p-4 rounded-xl" type="email" defaultValue={user?.email} name="email" placeholder="Your Email" id="" />
-                    </div>
-                    <textarea name="message" id="" className="w-full p-6 rounded-xl my-6" placeholder="Your Message"></textarea>
-                    <input className="bg-[#FF3811] w-full cursor-pointer text-white text-xl font-bold py-4 rounded-xl" type="submit" value="Order Confirm" />
-                </form>
+            <div className="my-10 lg:my-32">
+                <div className="bg-[#F3F3F3]  rounded-xl">
+                    <form onSubmit={handleCheckOut} className="py-10 px-2 lg:p-20">
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <input className="w-full p-4 rounded-xl" type="text" defaultValue={user?.displayName} name="name" placeholder="First Name" id="" />
+                            <input className="w-full p-4 rounded-xl" type="date" name="date" id="" />
+                            <input className="w-full p-4 rounded-xl" type="text" name="phone" placeholder="Your Phone" id="" />
+                            <input className="w-full p-4 rounded-xl" type="email" defaultValue={user?.email} name="email" placeholder="Your Email" id="" />
+                        </div>
+                        <textarea name="message" id="" className="w-full p-6 rounded-xl my-6" placeholder="Your Message"></textarea>
+                        <input className="bg-[#FF3811] w-full cursor-pointer text-white text-xl font-bold py-4 rounded-xl" type="submit" value="Order Confirm" />
+                    </form>
+                </div>
+                <div className="flex justify-between">
+                    <Link to='/'>
+                        <button className="flex items-center gap-5 text-xl font-bold text-[#FF3811] my-5">
+                            <BsArrow90DegLeft />
+                            Continue Shopping
+                        </button>
+                    </Link>
+                    <Link to='/bookings'>
+                        <button className="flex items-center gap-5 text-xl font-bold text-[#FF3811] my-5">
+                            See you Orders
+                            <BsArrow90DegRight />
+                        </button>
+                    </Link>
+                </div>
             </div>
         </div>
     );

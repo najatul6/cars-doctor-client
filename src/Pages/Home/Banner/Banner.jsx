@@ -12,10 +12,10 @@ const Banner = () => {
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={banner1} className="w-full rounded-xl" />
                 <div className="absolute flex items-center h-full rounded-xl left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                    <div className="text-white space-y-7 pl-12 w-1/2">
-                        <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
+                    <div className="text-white space-y-7 pl-9 md:pl-12 w-1/2">
+                        <h2 className="text-2xl md:text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-5 flex-col md:flex-row">
                             <button className="btn bg-[#FF3811] text-white">Discover More</button>
                             <button className="btn btn-outline border-[#FF3811] border-2 hover:bg-[#FF3811] hover:border-white hover:text-white text-[#FF3811]">Latest Project</button>
                         </div>
@@ -29,10 +29,10 @@ const Banner = () => {
             <div id="slide2" className="carousel-item relative w-full">
                 <img src={banner2} className="w-full rounded-xl" />
                 <div className="absolute flex items-center h-full rounded-xl left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                    <div className="text-white space-y-7 pl-12 w-1/2">
-                        <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
+                    <div className="text-white space-y-7 pl-9 md:pl-12 w-1/2">
+                        <h2 className="text-2xl md:text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-5 flex-col md:flex-row">
                             <button className="btn bg-[#FF3811] text-white">Discover More</button>
                             <button className="btn btn-outline border-[#FF3811] border-2 hover:bg-[#FF3811] hover:border-white hover:text-white text-[#FF3811]">Latest Project</button>
                         </div>
@@ -46,10 +46,10 @@ const Banner = () => {
             <div id="slide3" className="carousel-item relative w-full">
                 <img src={banner3} className="w-full rounded-xl" />
                 <div className="absolute flex items-center h-full rounded-xl left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                    <div className="text-white space-y-7 pl-12 w-1/2">
-                        <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
+                    <div className="text-white space-y-7 pl-9 md:pl-12 w-1/2">
+                        <h2 className="text-2xl md:text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-5 flex-col md:flex-row">
                             <button className="btn bg-[#FF3811] text-white">Discover More</button>
                             <button className="btn btn-outline border-[#FF3811] border-2 hover:bg-[#FF3811] hover:border-white hover:text-white text-[#FF3811]">Latest Project</button>
                         </div>
@@ -63,10 +63,10 @@ const Banner = () => {
             <div id="slide4" className="carousel-item relative w-full">
                 <img src={banner4} className="w-full rounded-xl" />
                 <div className="absolute flex items-center h-full rounded-xl left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                    <div className="text-white space-y-7 pl-12 w-1/2">
-                        <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
+                    <div className="text-white space-y-7 pl-9 md:pl-12 w-1/2">
+                        <h2 className="text-2xl md:text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-5 flex-col md:flex-row">
                             <button className="btn bg-[#FF3811] text-white">Discover More</button>
                             <button className="btn btn-outline border-[#FF3811] border-2 hover:bg-[#FF3811] hover:border-white hover:text-white text-[#FF3811]">Latest Project</button>
                         </div>
@@ -80,10 +80,10 @@ const Banner = () => {
             <div id="slide5" className="carousel-item relative w-full">
                 <img src={banner5} className="w-full rounded-xl" />
                 <div className="absolute flex items-center h-full rounded-xl left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                    <div className="text-white space-y-7 pl-12 w-1/2">
-                        <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
+                    <div className="text-white space-y-7 pl-9 md:pl-12 w-1/2">
+                        <h2 className="text-2xl md:text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-5 flex-col md:flex-row">
                             <button className="btn bg-[#FF3811] text-white">Discover More</button>
                             <button className="btn btn-outline border-[#FF3811] border-2 hover:bg-[#FF3811] hover:border-white hover:text-white text-[#FF3811]">Latest Project</button>
                         </div>
@@ -97,10 +97,10 @@ const Banner = () => {
             <div id="slide6" className="carousel-item relative w-full">
                 <img src={banner6} className="w-full rounded-xl" />
                 <div className="absolute flex items-center h-full rounded-xl left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
-                    <div className="text-white space-y-7 pl-12 w-1/2">
-                        <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
+                    <div className="text-white space-y-7 pl-9 md:pl-12 w-1/2">
+                        <h2 className="text-2xl md:text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-5 flex-col md:flex-row">
                             <button className="btn bg-[#FF3811] text-white">Discover More</button>
                             <button className="btn btn-outline border-[#FF3811] border-2 hover:bg-[#FF3811] hover:border-white hover:text-white text-[#FF3811]">Latest Project</button>
                         </div>

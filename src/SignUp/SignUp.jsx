@@ -1,14 +1,18 @@
 import { FcGoogle } from "react-icons/fc";
 import { ImTwitter } from "react-icons/im";
 import { BsFacebook } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../assets/images/login/login.svg"
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../Pages/provider/AuthProvider";
 import Swal from "sweetalert2";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const SignUp = () => {
     const { createUser, googleLogIn, twitterLogIn, facebookLogIn } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogIn = e => {
         e.preventDefault();
@@ -28,6 +32,7 @@ const SignUp = () => {
                         'success'
                     )
                     form.reset()
+                    navigate(location?.state ? location?.state : '/')
                 }
             })
             .catch(error => {
@@ -42,9 +47,18 @@ const SignUp = () => {
 
     const handleSocialLogin = (media) => {
         media()
+        navigate(location?.state ? location?.state : '/')
     }
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return (
-        <div className="hero min-h-screen bg-white">
+        <div
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+            className="hero min-h-screen bg-white">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="text-center lg:mr-16 lg:text-left lg:w-1/2">
                     <img src={login} alt="" />

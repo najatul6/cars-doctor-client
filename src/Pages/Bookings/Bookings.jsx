@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import BookingRow from "./BookingRow";
 import Swal from "sweetalert2";
+import { BsArrow90DegLeft } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Orders = () => {
     const { user } = useContext(AuthContext);
@@ -85,7 +87,7 @@ const Orders = () => {
     }
     return (
         <div>
-            <h2>Total Order : {order.length}</h2>
+            <h2 className="text-center font-bold text-2xl text-[#FF3811]">Total Order : {order.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -108,6 +110,12 @@ const Orders = () => {
                     </tbody>
                 </table>
             </div>
+            <Link to='/'>
+                <button className="flex items-center gap-5 text-xl font-bold text-[#FF3811] my-5">
+                    <BsArrow90DegLeft />
+                    Continue Shopping
+                </button>
+            </Link>
         </div>
     );
 };
