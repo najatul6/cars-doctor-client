@@ -4,6 +4,7 @@ import BookingRow from "./BookingRow";
 import Swal from "sweetalert2";
 import { BsArrow90DegLeft } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Orders = () => {
     const { user } = useContext(AuthContext);
@@ -11,9 +12,13 @@ const Orders = () => {
 
     const url = `http://localhost:5000/orders?email=${user?.email}`;
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setOrder(data))
+        axios.get(url, { withCredentials: true })
+            .then(res => {
+                setOrder(res.data)
+            })
+        // fetch(url)
+        //     .then(res => res.json())
+        //     .then(data => setOrder(data))
     }, [url]);
     const handleDelete = id => {
         Swal.fire({
@@ -88,34 +93,42 @@ const Orders = () => {
     return (
         <div>
             <h2 className="text-center font-bold text-2xl text-[#FF3811]">Total Order : {order.length}</h2>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Service</th>
-                            <th>Price</th>
-                            <th>Name</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* row 1 */}
-                        {
-                            order.map(order => <BookingRow key={order._id} order={order} handleConfirm={handleConfirm} handleDelete={handleDelete}></BookingRow>)
-                        }
+            {
+                !order?.length  ?
+                    <h2 className="text-2xl font-bold flex justify-center items-center min-h-screen bg-zinc-200 text-[#FF3811]">Your order list is empty</h2>
+                    :
+                    <div className="overflow-x-auto">
+                        <table className="table">
+                            {/* head */}
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Service</th>
+                                    <th>Price</th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* row 1 */}
+                                {
+                                    order.map(order => <BookingRow key={order._id} order={order} handleConfirm={handleConfirm} handleDelete={handleDelete}></BookingRow>)
+                                }
 
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+            }
+
+            <div className="inline-block">
+                <Link to='/'>
+                    <button className="flex items-center gap-5 text-xl font-bold text-[#FF3811] my-5">
+                        <BsArrow90DegLeft />
+                        Continue Shopping
+                    </button>
+                </Link>
             </div>
-            <Link to='/'>
-                <button className="flex items-center gap-5 text-xl font-bold text-[#FF3811] my-5">
-                    <BsArrow90DegLeft />
-                    Continue Shopping
-                </button>
-            </Link>
         </div>
     );
 };

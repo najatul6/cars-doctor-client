@@ -8,6 +8,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import axios from "axios";
 
 const LogIn = () => {
     const { signIn, googleLogIn, twitterLogIn, facebookLogIn } = useContext(AuthContext);
@@ -21,18 +22,31 @@ const LogIn = () => {
         const password = form.password.value;
         signIn(email, password)
             .then(result => {
-                const user = result.user;
-                if (user) {
-                    Swal.fire(
-                        'Log In',
-                        'Log In Successfully',
-                        'success'
-                    )
-                    navigate(location?.state ? location?.state : '/')
+                const logedInUser = result.user;
+                const user = { email }
+                if (logedInUser) {
+                    // Access Token 
+                    axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                        .then(res => {
+                            if (res.data.success) {
+                                navigate(location?.state ? location?.state : '/')
+                                Swal.fire(
+                                    'Log In',
+                                    'Log In Successfully',
+                                    'success'
+                                )
+                            }
+                        })
+
                 }
             })
             .catch(error => {
-                console.error(error.message)
+                Swal.fire({
+                    title: 'Opps!',
+                    text: error.code,
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
             })
     }
     const handleSocialLogIn = (media) => {
