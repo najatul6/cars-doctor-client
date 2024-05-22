@@ -11,7 +11,7 @@ const ServicesDetail = () => {
         <div>
             <div className='relative w-full'>
                 <img className='w-full h-60 md:h-auto' src={bgimg} alt="" />
-                <div className='absolute flex items-center top-0 h-full bg-gradient-to-r rounded-xl from-[#151515] to-[rgba(21, 21, 21, 0.00)]'>
+                <div className='absolute flex items-center top-0 h-full bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] rounded-xl'>
                     <h2 className='text-4xl font-bold text-white pl-10'>Service Details</h2>
                 </div>
                 <div className='absolute text-xl font-bold text-white bottom-0 w-full flex justify-center'>

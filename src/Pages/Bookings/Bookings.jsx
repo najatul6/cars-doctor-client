@@ -6,16 +6,19 @@ import { BsArrow90DegLeft } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
 const Orders = () => {
     const { user } = useContext(AuthContext);
     const [order, setOrder] = useState([]);
 
-    const url = `http://localhost:5000/orders?email=${user?.email}`;
+    const url = `https://car-doctor-server-psi-five.vercel.app/orders?email=${user?.email}`;
     useEffect(() => {
         axios.get(url, { withCredentials: true })
             .then(res => {
                 setOrder(res.data)
             })
+
+
         // fetch(url)
         //     .then(res => res.json())
         //     .then(data => setOrder(data))
@@ -31,7 +34,7 @@ const Orders = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/orders/${id}`, {
+                fetch(`https://car-doctor-server-psi-five.vercel.app/orders/${id}`, {
                     method: 'DELETE',
 
                 })
@@ -63,7 +66,7 @@ const Orders = () => {
             confirmButtonText: 'Yes, Confirm it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/orders/${id}`, {
+                fetch(`https://car-doctor-server-psi-five.vercel.app/orders/${id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
@@ -94,7 +97,7 @@ const Orders = () => {
         <div>
             <h2 className="text-center font-bold text-2xl text-[#FF3811]">Total Order : {order.length}</h2>
             {
-                !order?.length  ?
+                !order?.length ?
                     <h2 className="text-2xl font-bold flex justify-center items-center min-h-screen bg-zinc-200 text-[#FF3811]">Your order list is empty</h2>
                     :
                     <div className="overflow-x-auto">

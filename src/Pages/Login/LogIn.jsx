@@ -1,6 +1,3 @@
-import { FcGoogle } from "react-icons/fc";
-import { ImTwitter } from "react-icons/im";
-import { BsFacebook } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/images/login/login.svg"
 import { useContext, useEffect } from "react";
@@ -11,7 +8,7 @@ import 'aos/dist/aos.css';
 import axios from "axios";
 
 const LogIn = () => {
-    const { signIn, googleLogIn, twitterLogIn, facebookLogIn } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const navigate = useNavigate()
     const location = useLocation();
 
@@ -26,15 +23,15 @@ const LogIn = () => {
                 const user = { email }
                 if (logedInUser) {
                     // Access Token 
-                    axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    axios.post('https://car-doctor-server-psi-five.vercel.app/jwt', user, { withCredentials: true })
                         .then(res => {
                             if (res.data.success) {
-                                navigate(location?.state ? location?.state : '/')
                                 Swal.fire(
                                     'Log In',
                                     'Log In Successfully',
                                     'success'
                                 )
+                                navigate(location?.state ? location?.state : '/')
                             }
                         })
 
@@ -49,10 +46,7 @@ const LogIn = () => {
                 })
             })
     }
-    const handleSocialLogIn = (media) => {
-        media()
-        navigate(location?.state ? location?.state : '/')
-    }
+
 
     useEffect(() => {
         AOS.init();
@@ -90,18 +84,7 @@ const LogIn = () => {
                             <button type="submit" className="btn hover:bg-[#FF3811] border-2 border-[#FF3811] text-[#FF3811] hover:text-white">Sign In</button>
                         </div>
                     </form>
-                    <p className="text-center text-[#444] text-lg">Or Sign In with</p>
-                    <div className="flex justify-center gap-5 my-3">
-                        <button onClick={() => handleSocialLogIn(facebookLogIn)} className="btn py-2 p-[15px] rounded-full text-xl text-blue-500">
-                            <BsFacebook></BsFacebook>
-                        </button>
-                        <button onClick={() => handleSocialLogIn(twitterLogIn)} className="btn py-2 p-[15px] rounded-full text-xl text-blue-500">
-                            <ImTwitter></ImTwitter>
-                        </button>
-                        <button onClick={() => handleSocialLogIn(googleLogIn)} className="btn py-2 p-[15px] rounded-full text-xl">
-                            <FcGoogle></FcGoogle>
-                        </button>
-                    </div>
+                    
                     <p className="text-center">Are you New Here? <Link to="/signup" className="text-[#FF3811] font-bold">Sign In</Link></p>
                 </div>
             </div>
